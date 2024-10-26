@@ -1,0 +1,1 @@
+jQuery(document).ready(function(o){var t,e;window.Vc_postSettingsEditor&&((t=new Vc_postSettingsEditor).sel="wpb_css_editor",t.mode="css",t.is_focused=!0,(o=o("#wpb_css_editor")).length)&&(o=o.prev(),e="editorcss",window[e]=t,window[e].setEditor(o.val()),window[e].getEditor().on("change",function(o,t){o.val(window[t].getValue())}.bind(null,o,e)))});

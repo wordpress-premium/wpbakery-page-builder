@@ -1,0 +1,7 @@
+{
+	"name": "wordpress-premium/wpbakery-page-builder",
+	"type": "wordpress-plugin",
+	"description": "WPBakery Page Builder plugin for WordPress – create any layout with intuitive front-end and back-end drag-and-drop editors. No coding required. Low code for advanced customization. AI assistant.",
+	"license": "GPL-2.0-or-later",
+	"require": {}
+}

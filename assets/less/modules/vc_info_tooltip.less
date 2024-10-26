@@ -1,0 +1,65 @@
+.vc_ui-panel-window-inner .wpb-param-heading,
+.vc_ui-panel-window-inner .vc_ui-prompt-title,
+.vc_ui-panel-window-inner .wpb_settings-title,
+.vc_settings-tab-content .form-table tbody > tr > th,
+.vc_settings-tab-content .wpb_settings-title  {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    .wpb_element_label {
+        display: inline-block;
+        margin-bottom: 0;
+    }
+}
+.vc_settings-tab-content .form-table tr > th {
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+.edit-form-info {
+    display: inline-block;
+    padding: 0 7px;
+    height: 14px;
+    width: 14px;
+    &:hover {
+        cursor: pointer;
+        svg .info-circle {
+            fill: #0872CF;
+        }
+    }
+    &[data-show] svg .info-circle {
+        fill: #0872CF;
+    }
+
+    svg .info-circle {
+        transition: fill 0.2s ease-in-out;
+        fill: #BECBD1;
+    }
+    
+}
+.edit-form-info + .tooltip-content {
+    display: block; 
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+    background: #2C3339;
+    color: #EBEBEB;
+    font-weight: 400;
+    padding: 4px 12px;
+    font-size: 12px;
+    line-height: 20px;
+    border-radius: 14px;
+    z-index: 999;
+}
+.edit-form-info + .tooltip-content a {
+    color: #fff;
+    &:hover {
+        text-decoration: none;
+    }
+}
+.edit-form-info[data-show] + .tooltip-content {
+    opacity: 1; 
+    visibility: visible; 
+    &:hover {
+        cursor: pointer;
+    }
+}

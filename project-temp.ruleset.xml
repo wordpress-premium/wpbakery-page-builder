@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<ruleset name="Example Project">
+    <description>
+        We use this file only temporarily to help us migrate from old rulesets to the new single WordPress code style.
+        In the feature it shoudl completely be merged with the already existing project.ryleset.xml file
+    </description>
+
+    <!-- Only sniff PHP files -->
+    <arg name="extensions" value="php"/>
+
+    <!-- Show sniff codes in all reports -->
+    <arg value="s"/>
+
+    <!-- Up the Memory limit for large plugins -->
+    <ini name="memory_limit" value="512M"/>
+
+    <!-- Exclude these paths -->
+    <exclude-pattern>*/dev-lib/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+
+    <!-- We follow the wordoress code style as much as possible -->
+    <rule ref="WordPress">
+        <!-- list of rules that does not fit our project code style or fix it take too much now time due to old phpcs fonfiguration-->
+        <exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned"/>
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+        <exclude name="WordPress.WP.GlobalVariablesOverride.Prohibited"/>
+        <exclude name="WordPress.WP.I18n.MissingTranslatorsComment"/>
+        <exclude name="WordPress.WP.I18n.NonSingularStringLiteralText"/>
+        <exclude name="WordPress.PHP.DontExtract.extract_extract"/>
+        <exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict"/>
+        <exclude name="WordPress.DB.SlowDBQuery.slow_db_query_meta_key"/>
+        <exclude name="WordPress.DB.SlowDBQuery.slow_db_query_meta_value"/>
+        <exclude name="WordPress.DB.SlowDBQuery.slow_db_query_meta_query"/>
+
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
+        <exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
+        <exclude name="Squiz.Commenting.FunctionComment.EmptyThrows"/>
+        <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamType"/>
+
+        <exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning"/>
+
+        <exclude name="Universal.Operators.DisallowShortTernary.Found"/>
+        <exclude name="Universal.Arrays.DisallowShortArraySyntax.Found"/>
+        <exclude name="Universal.Operators.DisallowStandalonePostIncrementDecrement.PostIncrementFound"/>
+        <exclude name="Universal.ControlStructures.DisallowLonelyIf.Found"/>
+
+        <exclude name="PEAR.Functions.FunctionCallSignature"/>
+    </rule>
+
+    <!-- some specific rules that rules ref="WordPress" does not have but we wanna have them to make our code more neat -->
+    <rule ref="Generic.Metrics.NestingLevel"/>
+
+    <rule ref="Generic.Metrics.CyclomaticComplexity">
+        <properties>
+            <property name="complexity" value="9"/>
+        </properties>
+
+        <exclude-pattern>config/grids/class-vc-grids-common.php</exclude-pattern>
+        <exclude-pattern>tests/bootstrap.php</exclude-pattern>
+        <exclude-pattern>include/autoload/params/vc_grid_item.php</exclude-pattern>
+        <exclude-pattern>include/autoload/vc-shortcode-autoloader.php</exclude-pattern>
+        <exclude-pattern>include/autoload/vc-image-filters.php</exclude-pattern>
+    </rule>
+
+    <!-- some simplifying for our tests -->
+    <rule ref="WordPress.PHP.DevelopmentFunctions.error_log_print_r">
+        <exclude-pattern>tests</exclude-pattern>
+    </rule>
+    <rule ref="WordPress.Security">
+        <exclude-pattern>tests</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.Commenting.FileComment">
+        <exclude-pattern>tests</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionComment.Missing">
+        <exclude-pattern>tests</exclude-pattern>
+    </rule>
+    <rule ref="Modernize.FunctionCalls.Dirname.FileConstant">
+        <exclude-pattern>tests</exclude-pattern>
+    </rule>
+    <rule ref="WordPress.WP.AlternativeFunctions">
+        <exclude-pattern>tests</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.Commenting.ClassComment.Missing">
+        <exclude-pattern>tests</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.PHP.CommentedOutCode.Found">
+        <exclude-pattern>tests</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.Commenting.VariableComment.Missing">
+        <exclude-pattern>tests</exclude-pattern>
+    </rule>
+    <rule ref="Generic.Commenting.DocComment.MissingShort">
+        <exclude-pattern>tests</exclude-pattern>
+    </rule>
+
+    <!--
+    Below is an excludes for individual rules and files that we should add due to compatibility with outdated code,
+    We can't fix it now due to compatibility with 3 parties but we try to improve it bit by bit. 
+    -->
+    <rule ref="WordPress.NamingConventions">
+        <exclude-pattern>config/grids/class-vc-grids-common.php</exclude-pattern>
+        <exclude-pattern>include/autoload/local-fonts/class-local-fonts.php</exclude-pattern>
+        <exclude-pattern>include/autoload/class-vc-settings-presets.php</exclude-pattern>
+        <exclude-pattern>include/autoload/vc-shortcode-autoloader.php</exclude-pattern>
+    </rule>
+
+    <rule ref="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid">
+        <exclude-pattern>include/autoload/post-type-default-template.php</exclude-pattern>
+        <exclude-pattern>include/autoload/class-vc-vendor-presets.php</exclude-pattern>
+        <exclude-pattern>include/autoload/hook-vc-grid.php</exclude-pattern>
+    </rule>
+
+    <rule ref="WordPress.NamingConventions.ValidHookName.UseUnderscores">
+        <exclude-pattern>include/autoload/ui-vc-pointers.php</exclude-pattern>
+        <exclude-pattern>include/autoload/vc-pages/welcome-screen.php</exclude-pattern>
+        <exclude-pattern>include/autoload/vc-pages/settings-tabs.php</exclude-pattern>
+    </rule>
+
+    <rule ref="Universal.Operators.StrictComparisons.LooseEqual">
+        <exclude-pattern>include/autoload/local-fonts/class-local-fonts.php</exclude-pattern>
+    </rule>
+
+    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter.Found">
+        <exclude-pattern>include/autoload/vendors/gutenberg.php</exclude-pattern>
+        <exclude-pattern>include/autoload/params/vc_grid_item.php</exclude-pattern>
+    </rule>
+
+    <rule ref="Generic.CodeAnalysis.RequireExplicitBooleanOperatorPrecedence.MissingParentheses">
+        <exclude-pattern>include/autoload/vc-grid-item-editor.php</exclude-pattern>
+    </rule>
+
+    <rule ref="Universal.Files.SeparateFunctionsFromOO.Mixed">
+        <exclude-pattern>include/autoload/post-type-default-template.php</exclude-pattern>
+    </rule>
+
+</ruleset>

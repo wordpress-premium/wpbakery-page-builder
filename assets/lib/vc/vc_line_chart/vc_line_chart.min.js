@@ -1,0 +1,8 @@
+/*!
+* WPBakery Page Builder v7.6.0 (https://wpbakery.com)
+* Copyright 2011-2024 Michael M, WPBakery
+* License: Commercial. More details: http://go.wpbakery.com/licensing
+*/
+	// jscs:disable
+	// jshint ignore: start 
+(s=>{s.fn.vcLineChart=function(){var c=void 0!==s.fn.vcwaypoint;return this.each(function(){var t,a,n,e,i=s(this),o=i.find("canvas")[0].getContext("2d"),d={showTooltips:i.data("vcTooltips"),animation:{duration:800,easing:i.data("vcAnimation")||"easeOutQuart"},datasetFill:!0,scaleLabel:function(a){return" "+a.value},responsive:!0,plugins:{}};for(i.data("vcLegend")||(d.plugins.legend={display:!1}),i.data("vcTooltips")||(d.plugins.tooltip={enabled:!1}),i.data("chart")&&(i.data("chart").destroy(),i.removeData("animated")),t=i.data("vcValues"),o.canvas.width=i.width(),o.canvas.height=i.width(),e=t.datasets.length-1;0<=e;e--)Array.isArray(t.datasets[e].backgroundColor)&&((a=o.createLinearGradient(0,0,0,o.canvas.height)).addColorStop(0,t.datasets[e].backgroundColor[0]),a.addColorStop(1,t.datasets[e].backgroundColor[1]),t.datasets[e].backgroundColor=a);function r(){var a;i.data("animated")||(a="line","bar"===i.data("vcType")&&(a="bar"),n=new Chart(o,{type:a,data:t,options:d}),i.data("vcChartId",n.id),i.data("chart",n),i.data("animated",!0))}c?i.vcwaypoint(s.proxy(r,i),{offset:"85%"}):r()}),this},"function"!=typeof window.vc_line_charts&&(window.vc_line_charts=function(a){var t=".vc_line-chart";s(t=void 0!==a?'[data-model-id="'+a+'"] '+t:t).vcLineChart()}),s(document).ready(function(){window.vc_iframe||vc_line_charts()})})(jQuery);

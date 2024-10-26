@@ -1,0 +1,36 @@
+// Opacity
+.opacity(@opacity) {
+    opacity: @opacity;
+    // IE8 filter
+    @opacity-ie: (@opacity * 100);
+    filter: ~"alpha(opacity=@{opacity-ie})";
+}
+
+.vc_settings-tab-content {
+    .pcr-button {
+        .opacity(0.5);
+    }
+    &.color_enabled {
+        .pcr-button {
+            .opacity(1);
+        }
+    }
+    .submit {
+        margin-top: 0;
+        padding-top: 0;
+    }
+    .vc_restore-button {
+        margin: 0 10px;;
+    }
+    &.hidden {
+        display: none;
+    }
+}
+
+.vc_button-settings-less {
+    margin-bottom: 4px;
+}
+
+.vc_settings-spinner {
+    margin-right: 10px;
+}

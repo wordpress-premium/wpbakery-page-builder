@@ -1,0 +1,49 @@
+#wpb-js-composer-settings:has(#vc_settings-color-picker) {
+  display: flex;
+  flex-wrap: wrap;
+
+  h2, .nav-tab-wrapper {
+    width: 100%;
+  }
+}
+
+#vc_settings-color-picker, #picker-preview-container {
+  position: relative;
+  flex: 1;
+}
+
+#picker-preview-container {
+  margin-top: 20px;
+  margin-right: 50px;
+
+  p {
+    font-size: 15px;
+  }
+
+  .pickr {
+    width: 1px;
+    visibility: hidden;
+  }
+}
+
+.pcr-app.wpb-pickr-preview {
+  pointer-events: none;
+  transition: none;
+  z-index: 0;
+}
+
+#vc_settings-color-picker-restore-default {
+  margin: 20px 10px;
+}
+
+@media screen and (max-width: 782px) {
+  #picker-preview-container {
+    display: none;
+
+  }
+
+  .pcr-app.wpb-pickr-preview {
+    visibility: hidden;
+    opacity: 0;
+  }
+}

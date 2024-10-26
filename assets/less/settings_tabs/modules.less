@@ -1,0 +1,61 @@
+// wpb-module
+#vc_settings-modules .form-table tbody > tr:first-child > th {
+    display: none;
+}
+.wpb-module-wrapper {
+    width: 280px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &:not(:first-child) {
+        margin-top: 35px;
+    }
+    p {
+        width: 220px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        margin-top: 0;
+        font-weight: 600;
+        color: #1d2327;
+    }
+    .wpb-toggle-wrapper {
+        display: flex;
+    }
+}
+// wpb-toggle
+.wpb-toggle-wrapper {
+    input[type=checkbox]{
+        height: 0;
+        width: 0;
+        visibility: hidden;
+    }
+    label {
+        cursor: pointer;
+        text-indent: -9999px;
+        width: 38px;
+        height: 22px;
+        background: #2C3339;
+        display: block;
+        border-radius: 100px;
+        position: relative;
+    }
+    label:after {
+        content: '';
+        position: absolute;
+        top: 4px;
+        left: 5px;
+        width: 14px;
+        height: 14px;
+        background: #fff;
+        border-radius: 14px;
+        transition: 0.3s;
+    }
+    input:checked + label {
+        background: #2271B1;
+    }
+    input:checked + label:after {
+        left: calc(100% - 5px);
+        transform: translateX(-100%);
+    }
+}

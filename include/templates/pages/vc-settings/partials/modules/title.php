@@ -1,0 +1,1 @@
+<p><?php esc_html_e( 'Control module loading and availability in the editor. Disabled modules will be hidden from all user roles and corresponding functionality will not be loaded.', 'js_composer' ); ?></p>

@@ -1,0 +1,43 @@
+.color-group .pcr-app.wpb-pickr {
+  max-width: 340px;
+  width: 340px;
+}
+
+.color-group .pcr-button {
+  border: 1px solid #8c8f94;
+}
+
+.color-group .pickr .pcr-button::after {
+  border-radius: .05em;
+}
+
+// Override WPB input styles
+.color-group .pcr-app .pcr-interaction input {
+  width: auto;
+  min-height: unset;
+  line-height: 1;
+  border: none;
+}
+
+.color-group .pcr-app .pcr-interaction .pcr-type.active {
+  background: @vc_main_color;
+}
+
+.color-group .pcr-app .pcr-interaction .pcr-type.active:hover {
+  background: @vc_main_color_hover;
+}
+
+.color-group .pcr-app .pcr-interaction input:focus {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .85), 0 0 0 3px @vc_main_color;
+}
+
+.color-group .pcr-app .pcr-interaction .pcr-cancel {
+  color: #75797e;
+  background: #f1f3f4;
+}
+
+.color-group .pcr-app .pcr-interaction .pcr-cancel:hover {
+  filter: brightness(0.975);
+}
+
+
